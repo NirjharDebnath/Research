@@ -34,7 +34,7 @@ Particle Swarm Optimization (PSO) is a population-based stochastic optimization 
    Where:
    - $$w$$: Inertia weight controlling exploration vs exploitation.
    - $$c_1, c_2$$: Cognitive and social coefficients, respectively.
-   - $$r_1, r_2$$: Random numbers uniformly distributed in[1].
+   - $$r_1, r_2$$: Uniformly distributed random numbers.
    - $$p_{\text{best},i}$$: Personal best position of particle $$i$$.
    - $$g_{\text{best}}$$: Global best position among all particles.
 
