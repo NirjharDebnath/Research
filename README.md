@@ -1,4 +1,4 @@
-<center><h1> Reinforcement Learning Based Particle Swarm Optimisation Algorithm </h1></center>
+<center><h1> Reinforcement Learning Based Hyperparameter Tuning of Particle Swarm Optimisation Algorithm </h1></center>
 <hr>
 
 ## 1.0 Abstract
