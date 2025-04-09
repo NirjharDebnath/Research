@@ -56,3 +56,43 @@ Particle Swarm Optimization (PSO) is a population-based stochastic optimization 
 #### **Advantages**
 - Does not require gradient information, making it suitable for non-differentiable or complex functions.
 - Simple implementation with few parameters to tune.
+
+### 2.2 Reinforcement Learning
+Reinforcement learning (RL) is an interdisciplinary area of machine learning and optimal control concerned with how an intelligent agent should take actions in a dynamic environment in order to maximize a reward signal. Reinforcement learning is one of the three basic machine learning paradigms, alongside supervised learning and unsupervised learning. Reinforcement learning differs from supervised learning in not needing labelled input-output pairs to be presented, and in not needing sub-optimal actions to be explicitly corrected. Instead, the focus is on finding a balance between exploration (of uncharted territory) and exploitation (of current knowledge) with the goal of maximizing the cumulative reward (the feedback of which might be incomplete or delayed). The search for this balance is known as the exploration–exploitation dilemma.
+
+#### **Policy Gradient Algorithm**
+Policy gradient algorithm is a policy iteration approach where policy is directly manipulated to reach the optimal policy that maximises the expected return. The environment dynamics or transition probability is indicated as below:
+
+$$ p(s_{t+1} | s, a) $$
+
+It can be read the probability of reaching the next state $s_{t+1}$ by taking the action from the current state s. Policy 𝜋 is a distribution over actions given states. In other words, the policy defines the behaviour of the agent.
+
+$$ \pi(a | s) $$
+
+**Return and reward** - 
+We can define our return as the sum of rewards from the current state to the goal state i.e. the sum of rewards in a trajectory(we are just considering finite undiscounted horizon).
+
+$$ R(\tau) = \sum_{t=0}^{T-1} R(s_t, a_t) $$
+
+Where τ = $(s_0​,a_0​,…,s_{T−1}​,a_{T−1}​)$.
+
+**Objective function** - 
+In policy gradient, the policy is usually modelled with a parameterized function respect to θ, $π_θ(a|s)$. From a mathematical perspective, an objective function is to minimise or maximise something. We consider a stochastic, parameterized policy $π_θ$ and aim to maximise the expected return using objective function $J(π_θ)$
+
+$$ J(\pi_{\theta}) = E_{\pi_{\theta}}\left[\sum_{t=0}^{T-1}R(s_t, a_t)\right] = E_{\pi_{\theta}}[R(\tau)] $$
+
+Here $R(s_t, a_t)$ is defined as reward obtained at timestep t by performing an action $a_t$ from the state $s_t$. We know the fact that $R(s_t, a_t)$ can be represented as $R(τ)$.
+
+We can maximise the objective function J to maximises the return by adjusting the policy parameter θ to get the best policy. The best policy will always maximise the return. The gradient ascent is the optimisation algorithm that iteratively searches for optimal parameters that maximise the objective function.
+
+If we can find out the gradient ∇ of the objective function J, as shown below:
+
+$$ \nabla J(\pi_{\theta}) = \nabla E_{\pi_{\theta}}[R(\tau)] $$
+
+Then, we can update the policy parameter θ(for simplicity, we are going to use θ instead of $π_θ$), using the gradient ascent rule. This way, we can update the parameters θ in the direction of the gradient(Remember the gradient gives the direction of the maximum change, and the magnitude indicates the maximum rate of change ). The gradient update rule is as shown below:
+
+$$ \theta = \theta + \alpha \nabla E_{\pi_\theta}[R(\tau)] $$
+
+<center>or</center> 
+
+$$ \theta = \theta + \alpha \nabla J(\theta) $$
